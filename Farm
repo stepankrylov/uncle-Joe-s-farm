@@ -1,0 +1,53 @@
+class Farm:
+    def __init__(self, breedname, name, weight, sound):
+      self.breedname = breedname
+      self.name = name
+      self.weight = weight
+      self.sound = sound
+    def x(self):
+      print(self.breedname + ' по кличке ' + self.name + ' ' + self.sound + ' и весит ' + str(self.weight) + ' кг')
+      print(self.breedname + ' по кличке ' + self.name + ' покормлен(а)')
+
+class Bird(Farm):
+    def eggs(self):
+      print(self.breedname + ' по кличке ' + self.name + ' дала яйца')
+class Sheep(Farm):
+    def wool(self):
+      print(self.breedname + ' по кличке ' + self.name + ' пострижен(а)')
+class Cow_and_goat(Farm):
+    def milk(self):
+      print(self.breedname + ' по кличке ' + self.name + ' подоен(а)')    
+
+goose_1 = Bird('Гусь', 'Белая', 6, 'гогочет')
+goose_1.x()
+goose_1.eggs()
+goose_2 = Bird('Гусь', 'Серая', 8, 'гогочет')
+goose_2.x()
+goose_2.eggs()
+duck_1 = Bird('Утка', 'Кряква', 5, 'крякает')
+duck_1.x()
+duck_1.eggs()
+hen_1 = Bird('Курица', 'Ко-ко', 4, 'кудахчет')
+hen_1.x()
+hen_1.eggs()
+cock_1 = Bird('Петух', 'Кукареку', 6, 'кукарекает')
+cock_1.x()
+sheep_1 = Sheep('Баран', 'Барашек', 40, 'блеет')
+sheep_1.x()
+sheep_1.wool()
+sheep_2 = Sheep('Баран', 'Кудрявый', 45, 'блеет')
+sheep_2.x()
+sheep_2.wool()
+goat_1 = Cow_and_goat('Коза', 'Рога', 35, 'блеет')
+goat_1.x()
+goat_1.milk()
+goat_2 = Cow_and_goat('Коза', 'Копыта', 40, 'блеет')
+goat_2.x()
+goat_2.milk()
+cow_1 = Cow_and_goat('Корова', 'Манька', 330, 'мычит')
+cow_1.x()
+cow_1.milk()
+
+weight_dict = {goose_1.name: goose_1.weight, goose_2.name: goose_2.weight, duck_1.name: duck_1.weight, hen_1.name: hen_1.weight, cock_1.name: cock_1.weight, sheep_1.name: sheep_1.weight, sheep_2.name: sheep_2.weight, goat_1.name: goat_1.weight, goat_2.name: goat_2.weight, cow_1.name: cow_1.weight}
+print('Общая масса животных на ферме: ', sum(weight_dict.values()))
+print('Самое тяжелое животное на ферме: ', max(weight_dict, key=weight_dict.get))
